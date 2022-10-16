@@ -1,0 +1,110 @@
+﻿@model zodiaco.Models.Usuario
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>loginUsuario</title>
+    
+</head>
+<body>
+
+
+
+
+    @if (ViewBag.resultadoL == "Sus usuario o contraseña son incorrectos")
+    {
+        <div class="alert alert-danger alert-dismissible fade show" id="alertRegExist" role="alert">
+            <strong>Lo sentimos!</strong> @ViewBag.resultadoL
+            <button type="button" id="btnalertreg" onclick="closeAlertReg()" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    }
+
+    @if (ViewBag.resultadoL == "No existe la base de datos")
+    {
+        <div class="alert alert-danger alert-dismissible fade show" id="alertRegExist" role="alert">
+            <strong>Lo sentimos!</strong> @ViewBag.resultadoL
+            <button type="button" id="btnalertreg" onclick="closeAlertReg()" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    }
+
+    <script>
+        function closeAlertReg() {
+
+            $("#alertRegExist").hide();
+            $("#alertRegSucc").hide();
+        }
+
+    </script>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h5 class="card-header">
+                                Login
+                            </h5>
+                            <div class="card-body">
+                                <form method="post" action="loginUsuario">
+                                    <div class="form-group row">
+                                        <label for="UserName" class="col-4 col-form-label">Nombre de Usuario</label>
+                                        <div class="col-8">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-address-book-o"></i>
+                                                    </div>
+                                                </div>
+                                                <input id="UserName" name="UserName" placeholder="Ingrese su nombre de usuario" type="text" class="form-control" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="Password" class="col-4 col-form-label">Contraseña</label>
+                                        <div class="col-8">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-key"></i>
+                                                    </div>
+                                                </div>
+                                                <input id="Password" name="Password" placeholder="Ingrese su contraseña" type="password" class="form-control" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="offset-4 col-8">
+                                            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                CMMP.inc
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿@model List<zodiaco.Models.UsuarioLogin>
+
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Perfil</title>
+</head>
+<body>
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card">
+                                <h5 class="card-header">
+                                   Usuario
+                                </h5>
+                                <div class="card-body">
+                                    @foreach (var item in Model)
+                                    {
+                                        <h5> Nombre: @item.Nombre @item.Apellidos</h5>
+                                        <h5>Nombre de Usuario: @item.UserName</h5>
+                                        <h5>Sexo: @item.Sexo</h5>
+                                        <h5>Domicilio: @item.Domicilio</h5>
+                                        <h5>Telefono: @item.Telefono</h5>
+                                        <h5>Fecha de nacimiento: @item.FechaNac</h5>
+                                        <h5>Edad: @item.Edad</h5>
+                                        <h5>Tipo: @item.TipoUsuario</h5>
+                                        <h5>Signo: @item.Signo</h5>
+
+                                        <img src="@Url.Content("~/img/"+@item.Signo+".jpg")"  />
+
+                                    }
+                                </div>
+                                <div class="card-footer">
+                                    Card footer
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>

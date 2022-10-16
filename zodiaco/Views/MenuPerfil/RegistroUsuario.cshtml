@@ -1,0 +1,208 @@
+﻿@model zodiaco.Models.Usuario
+
+@{
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegistroUsuario</title>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+     
+        @if (ViewBag.resultado == "Se registro correctamente")
+        {
+            <div class="alert alert-success alert-dismissible fade show" id="alertRegSucc"  role="alert">
+                <strong>Listo!</strong> @ViewBag.resultado
+                <button type="button"  id="btnalertreg" class="close" onclick="closeAlertReg()"  data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+
+        @if (ViewBag.resultado == "ya existe este usuario")
+        {
+            <div class="alert alert-danger alert-dismissible fade show" id="alertRegExist" role="alert">
+                <strong>Lo sentimos!</strong> @ViewBag.resultado
+                <button type="button"  id="btnalertreg" onclick="closeAlertReg()" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        }
+
+        <script>
+            function closeAlertReg() {                
+                
+                $("#alertRegExist").hide();
+                $("#alertRegSucc").hide();
+            }
+
+        </script>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card">
+                            <h5 class="card-header">
+                                Agregar Usuario Nuevo
+                            </h5>
+                            <div class="card-body">
+
+                                <form action="" method="post">
+                                    <div class="form-group row">
+                                        <label for="Nombre" class="col-4 col-form-label">Nombre</label>
+                                        <div class="col-8">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-address-book-o"></i>
+                                                    </div>
+                                                </div>
+                                                <input id="Nombre" name="Nombre" placeholder="Ingrese nombre" type="text" required="required" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="Apellidos" class="col-4 col-form-label">Apellidos</label>
+                                        <div class="col-8">
+                                            <input id="Apellidos" name="Apellidos" placeholder="Ingresar apellidos" type="text" required="required" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="Calle" class="col-4 col-form-label">Calle</label>
+                                        <div class="col-8">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-street-view"></i>
+                                                    </div>
+                                                </div>
+                                                <input id="Calle" name="Calle" placeholder="ingresa calle" type="text" required="required" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="Numero" class="col-4 col-form-label">Numero</label>
+                                        <div class="col-8">
+                                            <input id="Numero" name="Numero" placeholder="Ingrese numero de la casa" type="number" required="required" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="Colonia" class="col-4 col-form-label">Colonia</label>
+                                        <div class="col-8">
+                                            <input id="Colonia" name="Colonia" placeholder="Ingrese colonia" type="text" required="required" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="Cp" class="col-4 col-form-label">C.P</label>
+                                        <div class="col-8">
+                                            <input id="Cp" name="Cp" min="10000" max="99999" placeholder="Ingrese el codigo postal" type="number" required="required" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="UserName" class="col-4 col-form-label">Nombre de usuario</label>
+                                        <div class="col-8">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-address-card-o"></i>
+                                                    </div>
+                                                </div>
+                                                <input id="UserName" name="UserName" placeholder="Ingrese su nombre de usuario" type="text" required="required" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="Password" class="col-4 col-form-label">Contraseña</label>
+                                        <div class="col-8">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-key"></i>
+                                                    </div>
+                                                </div>
+                                                <input id="Password" name="Password" placeholder="Ingrese contraseña" type="text" required="required" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="Telefono" class="col-4 col-form-label">Telefono</label>
+                                        <div class="col-8">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-phone"></i>
+                                                    </div>
+                                                </div>
+                                                <input title="Igresar 10 digitos" min="1000000000" max="9999999999" id="Telefono" name="Telefono" placeholder="Ingresa numero de telefono" type="number" required="required" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-4">Sexo</label>
+                                        <div class="col-8">
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input name="Sexo" id="Sexo_0" type="radio" class="custom-control-input" value="Hombre" required="required">
+                                                <label for="Sexo_0" class="custom-control-label">Hombre</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input name="Sexo" id="Sexo_1" type="radio" class="custom-control-input" value="Mujer" required="required">
+                                                <label for="Sexo_1" class="custom-control-label">Mujer</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="FechaNac" class="col-4 col-form-label">Fecha de nacimiento</label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="date" name="FechaNac" id="FechaNac" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-4">Tipo de Usuario</label>
+                                        <div class="col-8">
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input name="TipoUsuario" id="TipoUsuario_0" type="radio" class="custom-control-input" value="Administrador" required="required">
+                                                <label for="TipoUsuario_0" class="custom-control-label">Administrador</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input name="TipoUsuario" id="TipoUsuario_1" type="radio" class="custom-control-input" value="Cliente" required="required">
+                                                <label for="TipoUsuario_1" class="custom-control-label">Cliente</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input name="TipoUsuario" id="TipoUsuario_2" type="radio" required="required" class="custom-control-input" value="Vendedor">
+                                                <label for="TipoUsuario_2" class="custom-control-label">Vendedor</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="offset-4 col-8">
+                                            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                            <div class="card-footer">
+                                Card footer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
